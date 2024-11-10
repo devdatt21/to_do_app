@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./context/authContext";
-import Home from "./pages/HomePage";
 import Register from "./components/authentication/register";
 import Login from "./components/authentication/login";
 import Tasks from "./pages/tasksPage";
@@ -16,8 +15,7 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route
             path="/tasks"
