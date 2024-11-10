@@ -15,7 +15,8 @@ const Register = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-//   const API_URL = `${import.meta.env.VITE_API_URL}/api/users/login`;
+  // API URL using environment variable
+  const API_URL = `${import.meta.env.VITE_API_URL}/api/users/register`;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,7 +27,7 @@ const Register = () => {
     setError(null);
     try {
       console.log("Sending registration request:", formData);
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/users/register`, formData, {
+      const response = await axios.post(API_URL, formData, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -52,14 +53,14 @@ const Register = () => {
           padding: 3,
           borderRadius: 2,
           boxShadow: 3,
-          backgroundColor: "#f9f9f9",
+          backgroundColor: "#f0f4f8", // Light blue-grey background
         }}
       >
-        <Typography variant="h5" color="primary" align="center">
+        <Typography variant="h5" sx={{ color: "#1976d2", fontWeight: "bold" }} align="center">
           Register
         </Typography>
 
-        {error && <Alert severity="error">{error}</Alert>}
+        {error && <Alert severity="error" sx={{ backgroundColor: "#fdecea", color: "#b71c1c" }}>{error}</Alert>}
 
         <TextField
           name="username"
@@ -69,6 +70,16 @@ const Register = () => {
           onChange={handleChange}
           fullWidth
           required
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "#1976d2", // Blue border
+              },
+              "&:hover fieldset": {
+                borderColor: "#64b5f6", // Light blue border on hover
+              },
+            },
+          }}
         />
 
         <TextField
@@ -80,9 +91,29 @@ const Register = () => {
           onChange={handleChange}
           fullWidth
           required
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "#388e3c", // Green border
+              },
+              "&:hover fieldset": {
+                borderColor: "#81c784", // Light green border on hover
+              },
+            },
+          }}
         />
 
-        <Button type="submit" variant="contained" color="primary" fullWidth>
+        <Button
+          type="submit"
+          variant="contained"
+          fullWidth
+          sx={{
+            backgroundColor: "#1976d2", // Blue button color
+            "&:hover": {
+              backgroundColor: "#1565c0", // Darker blue on hover
+            },
+          }}
+        >
           Register
         </Button>
       </Box>
