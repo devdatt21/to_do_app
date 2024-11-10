@@ -1,18 +1,32 @@
-const express = require('express');
-const connectDB = require('./config/database.js')
-const dotenv = require('dotenv');
-dotenv.config();
+    const express = require('express');
+    const errorMiddleware = require("./middlewares/errorMiddleware.js");
+    const connectDB = require('./config/database.js')
+    const dotenv = require('dotenv');
+    dotenv.config();
+    const cors = require("cors");
+    const helmet = require("helmet");
 
-connectDB();
+    const PORT = process.env.PORT || 4000;
 
-const PORT = process.env.PORT || 4000;
+    const app = express();
 
-const app = express();
+    connectDB();
 
-app.get('/test', (req,res)=> {
-    res.json({message:"hii this is to do app"});
-})
+    app.use(cors());
+    app.use(helmet());
+    app.use(express.json());
 
-app.listen(PORT, () => {
-    console.log(`listing on server ${PORT}`)
-})
+
+
+    app.get('/test', (req,res)=> {
+        res.json({message:"hii this is to do app"});
+    })
+
+    app.use("/api/users", require("./routes/userRoutes"));
+    app.use("/api/tasks", require("./routes/taskRoutes"));
+    app.use(errorMiddleware);
+
+
+    app.listen(PORT, () => {
+        console.log(`listing on server ${PORT}`)
+    })

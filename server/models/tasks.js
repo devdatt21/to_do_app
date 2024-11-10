@@ -10,6 +10,9 @@ const taskSchema = new mongoose.Schema({
         type : String,
         required : true,
     },
+    description: { 
+        type: String 
+    },
     completed : {
         type : Boolean,
         default : false,
@@ -22,7 +25,10 @@ const taskSchema = new mongoose.Schema({
     dueDate: { 
         type: Date 
     },
+    tags : {
+        type : [String],
+        default : [],
+    }
 }, {timestamps:true});
 
-const Task = mongoose.model("Task", taskSchema);
-module.exports = Task;
+module.exports = mongoose.model("Task", taskSchema);
