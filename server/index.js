@@ -12,12 +12,12 @@
 
     connectDB();
 
-    app.use(cors({origin : "http://localhost:5173", credentials:true}));
+    // app.use(cors({origin : "http://localhost:5173", credentials:true}));
 
-    // app.use(cors({
-    //     origin: ["https://your-vercel-app.vercel.app"],
-    //     credentials: true,
-    //   }));
+    app.use(cors({
+        origin: ["https://to-do-app-omega-tan.vercel.app"],
+        credentials: true,
+      }));
     app.use(cors());
     app.use(helmet());
     app.use(express.json());
