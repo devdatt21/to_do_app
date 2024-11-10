@@ -12,6 +12,7 @@
 
     connectDB();
 
+    app.use(cors({origin : "http://localhost:5173", credentials:true}));
     app.use(cors());
     app.use(helmet());
     app.use(express.json());
