@@ -53,14 +53,25 @@ const Register = () => {
           padding: 3,
           borderRadius: 2,
           boxShadow: 3,
-          backgroundColor: "#f0f4f8", // Light blue-grey background
+          backgroundColor: "#f5f5f5",
         }}
       >
-        <Typography variant="h5" sx={{ color: "#1976d2", fontWeight: "bold" }} align="center">
+        <Typography
+          variant="h5"
+          sx={{ color: "#1c3a57", fontWeight: "bold" }} 
+          align="center"
+        >
           Register
         </Typography>
 
-        {error && <Alert severity="error" sx={{ backgroundColor: "#fdecea", color: "#b71c1c" }}>{error}</Alert>}
+        {error && (
+          <Alert
+            severity="error"
+            sx={{ backgroundColor: "#f8d7da", color: "#721c24" }} 
+          >
+            {error}
+          </Alert>
+        )}
 
         <TextField
           name="username"
@@ -73,10 +84,10 @@ const Register = () => {
           sx={{
             "& .MuiOutlinedInput-root": {
               "& fieldset": {
-                borderColor: "#1976d2", // Blue border
+                borderColor: "#1c3a57", 
               },
               "&:hover fieldset": {
-                borderColor: "#64b5f6", // Light blue border on hover
+                borderColor: "#2e5a84", 
               },
             },
           }}
@@ -94,10 +105,10 @@ const Register = () => {
           sx={{
             "& .MuiOutlinedInput-root": {
               "& fieldset": {
-                borderColor: "#388e3c", // Green border
+                borderColor: "#1c3a57", 
               },
               "&:hover fieldset": {
-                borderColor: "#81c784", // Light green border on hover
+                borderColor: "#2e5a84", 
               },
             },
           }}
@@ -108,9 +119,9 @@ const Register = () => {
           variant="contained"
           fullWidth
           sx={{
-            backgroundColor: "#1976d2", // Blue button color
+            backgroundColor: "#1c3a57", 
             "&:hover": {
-              backgroundColor: "#1565c0", // Darker blue on hover
+              backgroundColor: "#2e5a84", 
             },
           }}
         >

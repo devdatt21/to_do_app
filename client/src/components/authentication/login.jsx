@@ -17,6 +17,7 @@ const Login = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  // API URL using environment variable
   const API_URL = `${import.meta.env.VITE_API_URL}/api/users/login`;
 
   const handleChange = (e) => {
@@ -55,14 +56,25 @@ const Login = () => {
           padding: 3,
           borderRadius: 2,
           boxShadow: 3,
-          backgroundColor: "#f9f9f9",
+          backgroundColor: "#f5f5f5", 
         }}
       >
-        <Typography variant="h5" color="primary" align="center">
+        <Typography
+          variant="h5"
+          sx={{ color: "#1c3a57", fontWeight: "bold" }} 
+          align="center"
+        >
           Login
         </Typography>
 
-        {error && <Alert severity="error">{error}</Alert>}
+        {error && (
+          <Alert
+            severity="error"
+            sx={{ backgroundColor: "#f8d7da", color: "#721c24" }} 
+          >
+            {error}
+          </Alert>
+        )}
 
         <TextField
           name="username"
@@ -72,6 +84,16 @@ const Login = () => {
           onChange={handleChange}
           fullWidth
           required
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "#1c3a57", 
+              },
+              "&:hover fieldset": {
+                borderColor: "#2e5a84", 
+              },
+            },
+          }}
         />
 
         <TextField
@@ -83,9 +105,29 @@ const Login = () => {
           onChange={handleChange}
           fullWidth
           required
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "#1c3a57", 
+              },
+              "&:hover fieldset": {
+                borderColor: "#2e5a84", 
+              },
+            },
+          }}
         />
 
-        <Button type="submit" variant="contained" color="primary" fullWidth>
+        <Button
+          type="submit"
+          variant="contained"
+          fullWidth
+          sx={{
+            backgroundColor: "#1c3a57", 
+            "&:hover": {
+              backgroundColor: "#2e5a84", 
+            },
+          }}
+        >
           Login
         </Button>
       </Box>
