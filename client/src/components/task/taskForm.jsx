@@ -1,6 +1,15 @@
-
 import React, { useState } from "react";
 import axios from "axios";
+import {
+  TextField,
+  Button,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Box,
+  Typography,
+} from "@mui/material";
 
 const TaskForm = ({ fetchTasks }) => {
   const [formData, setFormData] = useState({
@@ -32,22 +41,71 @@ const TaskForm = ({ fetchTasks }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      
-      <input name="title" placeholder="Title" value={formData.title} onChange={handleChange} required />
-      
-      <input name="description" placeholder="Description" value={formData.description} onChange={handleChange} />
-      
-      <select name="priority" value={formData.priority} onChange={handleChange}>
-        <option value="high">High</option>
-        <option value="low">Low</option>
-      </select>
-      
-      <input name="dueDate" type="date" value={formData.dueDate} onChange={handleChange} />
-      
-      <button type="submit">Add Task</button>
-    
-    </form>
+    <Box
+      component="form"
+      onSubmit={handleSubmit}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 2,
+        maxWidth: 400,
+        margin: "0 auto",
+        padding: 2,
+        backgroundColor: "#f9f9f9",
+        borderRadius: 2,
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      }}
+    >
+      <Typography variant="h6" color="primary" align="center">
+        Add New Task
+      </Typography>
+
+      <TextField
+        name="title"
+        label="Title"
+        variant="outlined"
+        value={formData.title}
+        onChange={handleChange}
+        required
+      />
+
+      <TextField
+        name="description"
+        label="Description"
+        variant="outlined"
+        value={formData.description}
+        onChange={handleChange}
+        multiline
+        rows={3}
+      />
+
+      <FormControl fullWidth>
+        <InputLabel>Priority</InputLabel>
+        <Select
+          name="priority"
+          value={formData.priority}
+          onChange={handleChange}
+        >
+          <MenuItem value="high">High</MenuItem>
+          <MenuItem value="low">Low</MenuItem>
+        </Select>
+      </FormControl>
+
+      <TextField
+        name="dueDate"
+        label="Due Date"
+        type="date"
+        value={formData.dueDate}
+        onChange={handleChange}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
+
+      <Button type="submit" variant="contained" color="primary">
+        Add Task
+      </Button>
+    </Box>
   );
 };
 
