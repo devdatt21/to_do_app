@@ -1,79 +1,81 @@
 📝 To-Do App
 
-    A fullstack To-Do App built with React (Vite) for the frontend, Node.js/Express for the backend, and MongoDB as the database. The app allows users to register, login, and manage their tasks efficiently with a user-friendly interface and real-time updates.
+A fullstack To-Do App built with React (Vite) for the frontend, Node.js/Express for the backend, and MongoDB as the database. The app allows users to register, login, and manage their tasks efficiently with a user-friendly interface and real-time updates.
 
 🚀 Live Demo
 
-    Live Demo
+Live Demo : https://to-do-app-devdatt.netlify.app/
 
 
-✨ Features
-    User Authentication (Register/Login)
-    Create, Read, Update, and Delete (CRUD) operations for tasks
-    Task prioritization (High/Low)
-    Task filtering and sorting
-    Responsive UI using Material UI
-    Real-time updates with React hooks
-    JWT-based user authentication
-    Secure backend with CORS and environment variables
+✨ Features : 
 
-🛠️ Tech Stack
+User Authentication (Register/Login)
+Create, Read, Update, and Delete (CRUD) operations for tasks
+Task prioritization (High/Low)
+Task filtering and sorting
+Responsive UI using Material UI
+Real-time updates with React hooks
+JWT-based user authentication
+Secure backend with CORS and environment variables
 
-    Frontend: React, Vite, Material UI
-    Backend: Node.js, Express
-    Database: MongoDB (MongoDB Atlas)
+🛠️ Tech Stack : 
 
-    Hosting:
+Frontend: React, Vite, Material UI
+Backend: Node.js, Express
+Database: MongoDB (MongoDB Atlas)
 
-    Frontend: Vercel
-    Backend: Render
-    Database: MongoDB Atlas
+Hosting:
+
+Frontend: Vercel
+Backend: Render
+Database: MongoDB Atlas
 
 🛠️ Installation
 
-    Follow these steps to run the project locally.
+Follow these steps to run the project locally.
 
-    Prerequisites
-    Node.js (v18.x or above)
-    MongoDB Atlas Account for the database
-    Clone the Repository
+Prerequisites
+Node.js (v18.x or above)
+MongoDB Atlas Account for the database
+
+Clone the Repository
 
     git clone https://github.com/devdatt21/to_do_app.git
     cd to_do_app
 
-    Install Backend Dependencies
+Install Backend Dependencies
 
     cd server
     npm install
 
-    Install Frontend Dependencies
- 
+Install Frontend Dependencies
+
     cd ../frontend
     npm install
-    
-    Environment Variables
-    
-    Create a .env file in both server/ and frontend/ directories.
 
-    Backend .env
+Environment Variables
+
+Create a .env file in both server/ and frontend/ directories.
+
+Backend .env
 
     MONGO_DB_URI=your_mongodb_atlas_uri
     JWT_SECRET=your_jwt_secret
     PORT=4000
 
-    Frontend .env
+Frontend .env
 
     VITE_API_URL=https://your-backend-service.onrender.com/api
 
-    Start the Development Servers
+Start the Development Servers
 
-    Backend (Node.js/Express)
+Backend (Node.js/Express)
 
 
     cd server
     npm start
 
-    Frontend (React/Vite)
+Frontend (React/Vite)
 
     cd frontend
     npm run dev
