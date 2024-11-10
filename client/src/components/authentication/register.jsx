@@ -15,6 +15,8 @@ const Register = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+//   const API_URL = `${import.meta.env.VITE_API_URL}/api/users/login`;
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -24,7 +26,7 @@ const Register = () => {
     setError(null);
     try {
       console.log("Sending registration request:", formData);
-      const response = await axios.post("http://localhost:4000/api/users/register", formData, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/users/register`, formData, {
         headers: {
           "Content-Type": "application/json",
         },

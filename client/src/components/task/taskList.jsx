@@ -11,7 +11,7 @@ const TaskList = () => {
   const fetchTasks = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:4000/api/tasks", {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/tasks`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

@@ -17,6 +17,8 @@ const Login = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  const API_URL = `${import.meta.env.VITE_API_URL}/api/users/login`;
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -26,7 +28,7 @@ const Login = () => {
     setError(null);
     try {
       console.log("Sending login request:", formData);
-      const response = await axios.post("http://localhost:4000/api/users/login", formData, {
+      const response = await axios.post(API_URL, formData, {
         headers: {
           "Content-Type": "application/json",
         },
